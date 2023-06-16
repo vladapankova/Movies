@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">Movies</string>
+    <string name="poster">постер фильма</string>
+    <string name="poster_image">изображение постера фильма</string>
+    <string name="play">play</string>
+    <string name="button_favourite">кнопка избранное</string>
+    <string name="favourite_movies">Избранное</string>
+    <string name="stills">кадры из фильма</string>
+    <string name="fullsсreenImage">полноэкранное изображение</string>
+</resources>
