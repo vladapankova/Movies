@@ -33,7 +33,6 @@ public class FullScreenImageActivity extends AppCompatActivity {
         }
         int movieId = getIntent().getIntExtra(MOVIE_ID, 0);
         viewPager2 = findViewById(R.id.viewPager2);
-
         currentPosition = getIntent().getIntExtra(EXTRA_POSITION, 0);
         FullScreenAdapter fullScreenAdapter = new FullScreenAdapter();
         viewPager2.setAdapter(fullScreenAdapter);
