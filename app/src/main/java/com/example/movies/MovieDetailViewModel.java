@@ -23,11 +23,6 @@ public class MovieDetailViewModel extends AndroidViewModel {
     private int page = 1;
     private int pageImage = 1;
     private Boolean isLoading = false;
-    //  private MutableLiveData<Boolean> isLoading = new MutableLiveData<>(false);
-
-//    public MutableLiveData<Boolean> getIsLoading() {
-//        return isLoading;
-//    }
 
     private final CompositeDisposable compositeDisposable = new CompositeDisposable();
     private MutableLiveData<List<Trailer>> trailerListLiveData = new MutableLiveData<>();
@@ -91,10 +86,10 @@ public class MovieDetailViewModel extends AndroidViewModel {
                     public void accept(ImageResponse imageResponse) throws Throwable {
                         List<Image> images = imageResponse.getImages();
                         List<Image> imageList = imagesLiveData.getValue();
-                        if(imageList !=null){
+                        if (imageList != null) {
                             imageList.addAll(images);
                             imagesLiveData.setValue(imageList);
-                        }else{
+                        } else {
                             imagesLiveData.setValue(images);
                         }
                         pageImage++;
@@ -112,7 +107,7 @@ public class MovieDetailViewModel extends AndroidViewModel {
             return;
         }
         Disposable disposable = ApiFactory.apiService.loadReviews(
-                        ApiService.TOKEN, "20", page, id)
+                        ApiService.TOKEN, "30", page, id)
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .doOnSubscribe(new Consumer<Disposable>() {
