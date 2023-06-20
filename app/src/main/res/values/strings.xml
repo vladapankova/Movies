@@ -7,4 +7,7 @@
     <string name="favourite_movies">Избранное</string>
     <string name="stills">кадры из фильма</string>
     <string name="fullsсreenImage">полноэкранное изображение</string>
+    <string name="review_text">Текст отзыва</string>
+    <string name="show_full_review">Показать рецензию полностью</string>
+    <string name="expand_button">кнопка развернуть</string>
 </resources>

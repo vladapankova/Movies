@@ -12,6 +12,8 @@ import androidx.annotation.NonNull;
 import androidx.core.content.ContextCompat;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.ms.square.android.expandabletextview.ExpandableTextView;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -20,11 +22,6 @@ public class ReviewsAdapter extends RecyclerView.Adapter<ReviewsAdapter.ReviewVi
     private final String POSITIVE = "Позитивный";
     private final String NEUTRAL = "Нейтральный";
     private final String NEGATIVE = "Негативный";
-    private OnReachEndListener onReachEndListener;
-
-    public void setOnReachEndListener(OnReachEndListener onReachEndListener) {
-        this.onReachEndListener = onReachEndListener;
-    }
 
     public void setReviewList(List<Review> reviewList) {
         this.reviewList = reviewList;
@@ -42,7 +39,7 @@ public class ReviewsAdapter extends RecyclerView.Adapter<ReviewsAdapter.ReviewVi
     public void onBindViewHolder(@NonNull ReviewViewHolder holder, int position) {
         Review review = reviewList.get(position);
         holder.textViewAuthor.setText(review.getAuthor());
-        holder.textViewReview.setText(review.getReview());
+        holder.expandableTextView.setText(review.getReview());
 
         String type = review.getType();
         int colorResId = android.R.color.holo_orange_light;
@@ -58,10 +55,6 @@ public class ReviewsAdapter extends RecyclerView.Adapter<ReviewsAdapter.ReviewVi
         }
         int color = ContextCompat.getColor(holder.itemView.getContext(), colorResId);
         holder.linearLayoutContainer.setBackgroundColor(color);
-
-//        if (position >= reviewList.size() - 10 && onReachEndListener != null) {
-//            onReachEndListener.onReachEnd();
-//        }
     }
 
     @Override
@@ -69,21 +62,15 @@ public class ReviewsAdapter extends RecyclerView.Adapter<ReviewsAdapter.ReviewVi
         return reviewList.size();
     }
 
-    interface OnReachEndListener {
-        void onReachEnd();
-    }
-
-
-
     static class ReviewViewHolder extends RecyclerView.ViewHolder {
         private final TextView textViewAuthor;
-        private final TextView textViewReview;
         private final LinearLayout linearLayoutContainer;
+        private final ExpandableTextView expandableTextView;
 
         public ReviewViewHolder(@NonNull View itemView) {
             super(itemView);
             textViewAuthor = itemView.findViewById(R.id.textViewAuthor);
-            textViewReview = itemView.findViewById(R.id.textViewReview);
+            expandableTextView = itemView.findViewById(R.id.expand_text_view);
             linearLayoutContainer = itemView.findViewById(R.id.linearLayoutContainer);
         }
     }

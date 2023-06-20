@@ -32,7 +32,6 @@ public class MovieDetailActivity extends AppCompatActivity {
     private RecyclerView recyclerViewTrailers;
     private RecyclerView recyclerViewReviews;
     private RecyclerView recyclerViewImages;
-    // private ViewPager2 viewPager2;
     private ImageView imageViewStar;
     private static final String EXTRA_MOVIE = "movie";
     private MovieDetailViewModel movieDetailViewModel;
@@ -127,20 +126,6 @@ public class MovieDetailActivity extends AppCompatActivity {
                 Log.d(TAG, "интент отправлен");
             }
         });
-
-
-//        reviewsAdapter.setOnReachEndListener(new ReviewsAdapter.OnReachEndListener() {
-//            @Override
-//            public void onReachEnd() {
-//                movieDetailViewModel.loadReviews(movie.getId());
-//            }
-//        });
-
-//        MovieDao movieDao = MovieDatabase.getInstance(getApplication()).movieDao();
-//        movieDao.insertMovie(movie)
-//                .subscribeOn(Schedulers.io())
-//                .onErrorComplete()
-//                .subscribe();
     }
 
     private void initViews() {
@@ -151,7 +136,6 @@ public class MovieDetailActivity extends AppCompatActivity {
         recyclerViewTrailers = findViewById(R.id.recyclerViewTrailers);
         recyclerViewReviews = findViewById(R.id.recyclerViewReviews);
         recyclerViewImages = findViewById(R.id.recyclerViewImages);
-        // viewPager2 = findViewById(R.id.viewPager);
         imageViewStar = findViewById(R.id.imageViewStar);
     }
 
